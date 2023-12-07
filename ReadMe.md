@@ -16,10 +16,6 @@ Enable the plugin by editing your ArchivesSpace configuration file
 
 (Make sure you uncomment this line (i.e., remove the leading '#' if present))
 
-See also:
-
-  https://github.com/archivesspace/archivesspace/blob/master/plugins/README.md
-
 ## Configuration
 
 This plugin adds two configuration options. Add these to your config.rb file
