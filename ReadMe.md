@@ -24,7 +24,7 @@ See also:
 
 This plugin adds two configuration options. Add these to your config.rb file
 
-`AppConfig[:aspace_custom_locaizations]` should be a hash that maps one or more
+`AppConfig[:aspace_custom_localizations]` should be a hash that maps one or more
 I18n language codes to the related ArchivesSpace enumerations:language_iso639_2 code.
 Enumerations iso codes are found in common/locales/enums.
 
@@ -57,11 +57,12 @@ AppConfig[:aspace_custom_localizations_default] = :nl
 You *must* place new localization files in `frontend/locales` and
 `frontend/locales/enums` whose file names match the default language you chose.
 For example, if you chose Dutch as your default language, add files named `nl.yml` to both
-locations. Note that the labels/keys must remain in English
-and should be the same set as found in any of the core localizations for the version of ArchivesSpace
-that you are currently running.
+locations. 
 
-The pligin checks for the existence of these files and *only* updates the default language
+Note that the labels/keys must remain in English and should be the same set as found in 
+any of the core localizations for the version of ArchivesSpace that you are currently running.
+
+The plugin checks for the existence of these files and *only* updates the default language option(s)
 if they are present.
 
 ## Core Overrides
@@ -69,10 +70,10 @@ if they are present.
 This plugin overrides the following method in `frontend/plugin_init.rb`
 
 ```
-ApplicationHelper.def supported_locales_options
+ApplicationHelper.supported_locales_options
 ```
 
-It also extends/overrides the defaults schema. See `schemas/defaults_ext.rb`
+It also extends/overrides the `defaults` schema. See `schemas/defaults_ext.rb`
 
 ## Credits
 
