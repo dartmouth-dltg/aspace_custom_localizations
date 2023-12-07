@@ -58,7 +58,8 @@ You *must* place new localization files in `frontend/locales` and
 `frontend/locales/enums` whose file names match the default language you chose.
 For example, if you chose Dutch as your default language, add files named `nl.yml` to both
 locations. Note that the labels/keys must remain in English
-and should be the same set as found in any of the core localizations.
+and should be the same set as found in any of the core localizations for the version of ArchivesSpace
+that you are currently running.
 
 The pligin checks for the existence of these files and *only* updates the default language
 if they are present.
