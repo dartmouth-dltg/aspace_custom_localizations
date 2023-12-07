@@ -1,0 +1,1 @@
+A file to alert the schema override that this plugin may have custom locales.

@@ -64,6 +64,16 @@ that you are currently running.
 The pligin checks for the existence of these files and *only* updates the default language
 if they are present.
 
+## Core Overrides
+
+This plugin overrides the following method in `frontend/plugin_init.rb`
+
+```
+ApplicationHelper.def supported_locales_options
+```
+
+It also extends/overrides the defaults schema. See `schemas/defaults_ext.rb`
+
 ## Credits
 
 Plugin developed by Joshua Shaw [Joshua.D.Shaw@dartmouth.edu], Digital Library Technologies Group
