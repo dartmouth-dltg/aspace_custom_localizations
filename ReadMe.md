@@ -61,15 +61,7 @@ AppConfig[:aspace_custom_localizations_public_default] = :nl
 ## Localization files
 
 You *must* place new localization files in the appropriate locations if you wish to 
-use your custom localizations. The files are technically all optional, but will result 
-in `translation missing` warnings if not present and may cause your language option to 
-be unavailable.
-
-```
-common
-frontend
-public
-```
+use your custom localizations.
 
 The file names *must* match the default language you chose. For example, if you chose 
 Dutch as your default language, and wish to change both the frontend and PUI, add files 
@@ -86,9 +78,8 @@ frontend/locales/nl.yml
 public/locales/nl.yml
 ```
 
-Note that the labels/keys must remain in English and should be the same set as found in 
-any of the core localizations for the version of ArchivesSpace that you are currently 
-running.
+Note that the labels/keys for your new localizations *must* remain as they are found in
+the core localizations for the version of ArchivesSpace that you are currently running.
 
 The plugin checks for the existence of these files and *only* updates the default language 
 option(s) if they are present.
