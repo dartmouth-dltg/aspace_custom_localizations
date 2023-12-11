@@ -27,9 +27,9 @@ Rails.application.config.before_initialize do
           for country/region: #{region}
           with language: #{language}.\n\n"
         else  
-          puts "\n\nAspace Custom Locales Plugin: WARNING - Frontend localization files for the selected default language do not exist. Please ensure that you have 
-          a localization file and an enumerations file named: #{AppConfig[:aspace_custom_localizations_default].to_s}.yml 
-          in frontend/locales and frontend/locales/enums of this plugin.\n\n"
+          puts "\n\nAspace Custom Locales Plugin: WARNING - Frontend localization files for the selected default
+          language do not exist. Please ensure that you have localization files named: #{AppConfig[:aspace_custom_localizations_default].to_s}.yml 
+          in frontend/locales, common/locales, and common/locales/enums of this plugin.\n\n"
         end
                 
       end
