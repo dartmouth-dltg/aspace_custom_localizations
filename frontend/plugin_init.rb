@@ -9,13 +9,23 @@ Rails.application.config.before_initialize do
 
       class Application < Rails::Application
 
+        localization = AppConfig[:aspace_custom_localizations_default]
         plugin_dir = File.expand_path("..", File.expand_path(File.dirname(__FILE__)))
-        if AspaceCustomLocalesHelper.check_default_locale_existence(plugin_dir)
-          AppConfig[:locale] = AppConfig[:aspace_custom_localizations_default]
+
+        if (AspaceCustomLocalesHelper.default_locale_exist?(plugin_dir) &&
+          AspaceCustomLocalesHelper.custom_common_locales_exist?(localization, plugin_dir))
+
+          AppConfig[:locale] = localization
           config.i18n.load_path += Dir[File.join(plugin_dir, 'common', '**', '*.yml')]
           config.i18n.load_path += Dir[File.join(plugin_dir, 'reports', '**', '*.yml')]
           config.i18n.default_locale = AppConfig[:locale]
-          puts "\n\nAspace Custom Locales Plugin: Default frontend locale set to custom locale: #{AppConfig[:locale]}\n\n"
+          region = I18n.t('enumerations.country_iso_3166.' + localization.to_s.upcase)
+          language = I18n.t('enumerations.language_iso639_2.' + AppConfig[:aspace_custom_localizations][localization.to_s])
+
+          puts "\n\nAspace Custom Locales Plugin:
+          Default frontend locale set to custom locale: #{AppConfig[:locale]} 
+          for country/region: #{region}
+          with language: #{language}.\n\n"
         else  
           puts "\n\nAspace Custom Locales Plugin: WARNING - Frontend localization files for the selected default language do not exist. Please ensure that you have 
           a localization file and an enumerations file named: #{AppConfig[:aspace_custom_localizations_default].to_s}.yml 
@@ -43,7 +53,8 @@ Rails.application.config.after_initialize do
       if (AppConfig.has_key?(:aspace_custom_localizations) && 
         AppConfig.has_key?(:aspace_custom_localizations_default) &&
         AppConfig[:aspace_custom_localizations].include?(AppConfig[:aspace_custom_localizations_default].to_s) && 
-        AspaceCustomLocalesHelper.check_default_locale_existence(plugin_dir))
+        AspaceCustomLocalesHelper.default_locale_exist?(plugin_dir) &&
+        AspaceCustomLocalesHelper.custom_common_locales_exist?(AppConfig[:aspace_custom_localizations_default], plugin_dir))
 
         AppConfig[:aspace_custom_localizations].each do |loc, lang|
           if AspaceCustomLocalesHelper.allow_frontend_locale?(loc, plugin_dir)

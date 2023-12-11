@@ -16,11 +16,12 @@ class AspaceCustomLocalesSchema
   end
 
   def self.allow_locale?(lang)
-    # for this case, we only need to check the frontend since that's where the defaults are used
+    # for this case, we only need to check common & frontend since that's where the defaults are used
     locale = File.join(@plugin_dir, "frontend", "locales", "#{lang.to_s}.yml")
-    enum = File.join(@plugin_dir, "frontend", "locales", "enums", "#{lang.to_s}.yml")
+    common_locale = File.join(@plugin_dir, "common", "locales", "#{lang.to_s}.yml")
+    enum = File.join(@plugin_dir, "common", "locales", "enums", "#{lang.to_s}.yml")
 
-    return (File.exist?(locale) && File.exist?(enum))
+    return (File.exist?(locale) && File.exist?(common_locale) && File.exist?(enum))
   end
 end
   

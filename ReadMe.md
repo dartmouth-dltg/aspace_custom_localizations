@@ -83,9 +83,7 @@ A example set of custom localization files for Dutch:
 common/locales/nl.yml
 common/locales/enums/nl.yml
 frontend/locales/nl.yml
-frontend/locales/enums/nl.yml
 public/locales/nl.yml
-public/locales/enums/nl.yml
 ```
 
 Note that the labels/keys must remain in English and should be the same set as found in 
