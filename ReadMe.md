@@ -8,7 +8,8 @@ You can use this both as a way to provide users with additional language options
 local instance of ArchivesSpace and as a way to test those localizations for future 
 incorporation into the core code.
 
-Note the important instructions about [Uninstalling](#uninstalling).
+Note the important instructions about [Setting User Preferences](#setting-user-preferences)
+and [Uninstalling](#uninstalling).
 
 ArchivesSpace encourages users who have developed additional localizations to contribute
 those to the core code.
@@ -92,10 +93,16 @@ The plugin also supports custom report localizations. For ease of contributing t
 place them in the same structure as found in core. Core localizations for reports
 typically nest in a directory structure: `reports/{REPORT_GROUP}/{REPORT_NAME}/{LANGUAGE}.yml`
 
+## Setting User Preferences
+
+A user's preference for their chosen language will *not* be overriden by the plugin settings and
+will remain set to the language chosen prior to installing this plugin. Users will need to
+update their preferred language in `Preferences` if they wish to use one of the new localizations.
+
 ## Uninstalling
 
 If you choose to uninstall this plugin and any users have chosen a custom localization that 
-is *not* a core localization, you *must* first set the `Language Selection` in Preferences 
+is *not* a core localization, you *must* first set the `Language Selection` in `Preferences`
 for any users with that custom locale to a core locale or the application will fail to render
 for those users.
 
