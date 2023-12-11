@@ -8,6 +8,8 @@ You can use this both as a way to provide users with additional language options
 local instance of ArchivesSpace and as a way to test those localizations for future 
 incorporation into the core code.
 
+Note the important instructions about [Uninstalling](#uninstalling).
+
 ArchivesSpace encourages users who have developed additional localizations to contribute
 those to the core code.
 
