@@ -4,6 +4,10 @@
 
 An ArchivesSpace plugin that allows staff users to add one or more custom localizations.
 
+You can use this both as a way to provide users with additional language options in your
+local instance of ArchivesSpace and as a way to test those localizations for future 
+incorporation into the core code.
+
 ArchivesSpace encourages users who have developed additional localizations to contribute
 those to the core code.
 
