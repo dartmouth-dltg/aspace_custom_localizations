@@ -50,7 +50,7 @@ Rails.application.config.before_initialize do
             puts "\n\nAspace Custom Locales Plugin:
             WARNING - Public localization files for the selected default language do not exist.
             Please ensure that you have localization files named: #{AppConfig[:aspace_custom_localizations_public_default].to_s}.yml 
-            in public/locales, common/locales, and common/locales/enums and of this plugin.\n\n"
+            in public/locales, common/locales, and common/locales/enums of this plugin.\n\n"
           end
 
         end
