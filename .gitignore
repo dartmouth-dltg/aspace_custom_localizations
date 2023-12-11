@@ -1,3 +1,4 @@
 .DS_Store
 */locales/*.yml
 */locales/enums/*.yml
+reports/*/*/*.yml
