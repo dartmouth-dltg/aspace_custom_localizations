@@ -93,11 +93,28 @@ The plugin also supports custom report localizations. For ease of contributing t
 place them in the same structure as found in core. Core localizations for reports
 typically nest in a directory structure: `reports/{REPORT_GROUP}/{REPORT_NAME}/{LANGUAGE}.yml`
 
+### Third Party Plugin Localizations
+
+Some plugins may not provide fallback translation options and will present the standard
+"We're sorry, but something went wrong." error message if instantiated with a non-core
+localization. In such cases, make sure to add additional plugin specific localizations to your
+custom localization files.
+
+For example, the `as_history` plugin provided by the 
+(Queensland State Archives)[https://gitlab.gaiaresources.com.au/qsa/as_history] does not provide
+a fallback mechanism for any language other than English.
+
 ## Setting User Preferences
 
 A user's preference for their chosen language will *not* be overriden by the plugin settings and
 will remain set to the language chosen prior to installing this plugin. Users will need to
 update their preferred language in `Preferences` if they wish to use one of the new localizations.
+
+### Default Preferences
+
+Default preferences remain untouched since these are built during the first startup of the
+application and *must* include *only* core localizations as they will always be available, while
+custom localizations may not.
 
 ## Uninstalling
 
