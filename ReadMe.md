@@ -95,14 +95,20 @@ typically nest in a directory structure: `reports/{REPORT_GROUP}/{REPORT_NAME}/{
 
 ### Third Party Plugin Localizations
 
-Some plugins may not provide fallback translation options and will present the standard
+Some plugins may not provide fallback translation options and may present the standard
 "We're sorry, but something went wrong." error message if instantiated with a non-core
 localization. In such cases, make sure to add additional plugin specific localizations to your
 custom localization files.
 
 For example, the `as_history` plugin provided by the 
 (Queensland State Archives)[https://gitlab.gaiaresources.com.au/qsa/as_history] does not provide
-a fallback mechanism for any language other than English.
+translations for any language other than English.
+
+### Fallbacks
+
+The plugin will set the fallback language to the *initial default locale* for both the staff 
+interface and the PUI. Any missing translations in your custom localization will fall back to
+one found in the default localization (one of the core localizations). 
 
 ## Setting User Preferences
 
@@ -121,7 +127,8 @@ custom localizations may not.
 If you choose to uninstall this plugin and any users have chosen a custom localization that 
 is *not* a core localization, you *must* first set the `Language Selection` in `Preferences`
 for any users with that custom locale to a core locale or the application will fail to render
-for those users.
+for those users. Those users will see the standard "We're sorry, but something went wrong."
+error message.
 
 If your custom localization has become part of the core localizations, you can safely remove
 this plugin without any additional action.
