@@ -22,7 +22,7 @@ Rails.application.config.before_initialize do
 
         if AspaceCustomLocalesHelper.allow_frontend_locale?(localization, plugin_dir)
 
-          config.i18n.fallbacks = AppConfig[:locale]
+          config.i18n.fallbacks = [AppConfig[:locale]]
           AppConfig[:locale] = localization
           config.i18n.default_locale = AppConfig[:locale]
           region = I18n.t('enumerations.country_iso_3166.' + localization.to_s.upcase)
