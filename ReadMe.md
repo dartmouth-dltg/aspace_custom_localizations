@@ -11,6 +11,8 @@ incorporation into the core code.
 Note the important instructions about [Setting User Preferences](#setting-user-preferences)
 and [Uninstalling](#uninstalling).
 
+Note about [Bulk Importer Workaround](#bulk-importer-workaround).
+
 ArchivesSpace encourages users who have developed additional localizations to contribute
 those to the core code.
 
@@ -121,6 +123,13 @@ update their preferred language in `Preferences` if they wish to use one of the 
 Default preferences remain untouched since these are built during the first startup of the
 application and *must* include *only* core localizations as they will always be available, while
 custom localizations may not.
+
+## Bulk Importer Workaround
+
+The bulk importer will fail validate certain elements (enumerations, etc) if localizations are used.
+To work aroudn this issues, use the enumeration keys as the value in the bulk import spreadsheet.
+For example, instead of the localizations for `Series`, use the enumeration key `series` in the
+archival record level column.
 
 ## Uninstalling
 
