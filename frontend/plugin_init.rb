@@ -18,26 +18,7 @@ Rails.application.config.before_initialize do
         AppConfig.has_key?(:aspace_custom_localizations) && 
         AppConfig[:aspace_custom_localizations].include?(AppConfig[:aspace_custom_localizations_default].to_s))
 
-        localization = AppConfig[:aspace_custom_localizations_default]
-
-        if AspaceCustomLocalesHelper.allow_frontend_locale?(localization, plugin_dir)
-
-          config.i18n.fallbacks = [AppConfig[:locale]]
-          AppConfig[:locale] = localization
-          config.i18n.default_locale = AppConfig[:locale]
-          region = I18n.t('enumerations.country_iso_3166.' + localization.to_s.upcase)
-          language = I18n.t('enumerations.language_iso639_2.' + AppConfig[:aspace_custom_localizations][localization.to_s])
-
-          puts "\n\nAspace Custom Locales Plugin:
-          Default frontend locale set to custom locale: #{AppConfig[:locale]} 
-          for country/region: #{region}
-          with language: #{language}.\n\n"
-        else  
-          puts "\n\nAspace Custom Locales Plugin:
-          WARNING - Frontend localization files for the selected default language do not exist.
-          Please ensure that you have localization files named: #{AppConfig[:aspace_custom_localizations_default].to_s}.yml 
-          in frontend/locales, common/locales, and common/locales/enums of this plugin.\n\n"
-        end
+          AspaceCustomLocalesHelper.set_locale('frontend', plugin_dir)
                 
       end
 
