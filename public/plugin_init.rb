@@ -35,7 +35,7 @@ Rails.application.config.before_initialize do
         AppConfig.has_key?(:aspace_custom_localizations) && 
         AppConfig[:aspace_custom_localizations].include?(AppConfig[:aspace_custom_localizations_public_default].to_s))
 
-        AspaceCustomLocalesHelper.set_locale('public', plugin_dir)
+        AspaceCustomLocalesHelper.set_locale('public', plugin_dir, config)
 
       end
       

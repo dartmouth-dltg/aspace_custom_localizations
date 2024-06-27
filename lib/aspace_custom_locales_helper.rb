@@ -33,15 +33,13 @@
     self.allow_public_locale?(AppConfig[:aspace_custom_localizations_public_default].to_s, plugin_dir)
   end
 
-  def set_locale(app_name, plugin_dir)
+  def self.set_locale(app_name, plugin_dir, config)
     localization = AppConfig[:aspace_custom_localizations_default]
 
     allow_locale = false
 
     if ['backend', 'frontend'].include?(app_name)
       localization = AppConfig[:aspace_custom_localizations_default]
-      if app_name == 'backend'
-        plugin_dir = 
       allow_locale = allow_frontend_locale?(localization, plugin_dir)
       app_dir = 'frontend'
     elsif app_nane = 'public'
@@ -52,9 +50,19 @@
 
     if allow_locale
 
-      config.i18n.fallbacks = [AppConfig[:locale]]
+      if app_name == 'backend'
+        I18n::Backend::Simple.include(I18n::Backend::Fallbacks)
+        I18n.fallbacks = I18n::Locale::Fallbacks.new(de: :en, es: :en, fr: :en, ja: :en, localization.to_s => :en)
+        #I18n.fallbacks = [AppConfig[:locale]]
+      else
+        config.i18n.fallbacks = [AppConfig[:locale]]
+      end
       AppConfig[:locale] = localization
-      config.i18n.default_locale = AppConfig[:locale]
+      if app_name == 'backend'
+        I18n.default_locale = AppConfig[:locale]
+      else
+        config.i18n.default_locale = AppConfig[:locale]
+      end
       region = I18n.t('enumerations.country_iso_3166.' + localization.to_s.upcase)
       language = I18n.t('enumerations.language_iso639_2.' + AppConfig[:aspace_custom_localizations][localization.to_s])
 

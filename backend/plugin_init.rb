@@ -23,7 +23,7 @@ ArchivesSpaceService.loaded_hook do
     AppConfig.has_key?(:aspace_custom_localizations) && 
     AppConfig[:aspace_custom_localizations].include?(AppConfig[:aspace_custom_localizations_default].to_s))
 
-      AspaceCustomLocalesHelper.set_locale('backend', plugin_dir)
+      AspaceCustomLocalesHelper.set_locale('backend', plugin_dir, nil)
             
   end
 
