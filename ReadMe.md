@@ -11,8 +11,6 @@ incorporation into the core code.
 Note the important instructions about [Setting User Preferences](#setting-user-preferences)
 and [Uninstalling](#uninstalling).
 
-Note about [Bulk Importer Workaround](#bulk-importer-workaround).
-
 ArchivesSpace encourages users who have developed additional localizations to contribute
 those to the core code.
 
@@ -124,7 +122,7 @@ Default preferences remain untouched since these are built during the first star
 application and *must* include *only* core localizations as they will always be available, while
 custom localizations may not.
 
-## Bulk Importer Workaround
+## Bulk Importer Note
 
 If the bulk importer spreadsheet uses data from a language different from that set, the
 import spreadsheet data can be updated to use the enumeration keys to create a successful import.
