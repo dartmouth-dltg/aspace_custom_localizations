@@ -126,8 +126,8 @@ custom localizations may not.
 
 ## Bulk Importer Workaround
 
-The bulk importer will fail to validate certain elements (enumerations, etc) if localizations are used.
-To work around this, use the enumeration keys as the value in the bulk import spreadsheet.
+If the bulk importer spreadsheet uses data from a language different from that set, the
+import spreadsheet data can be updated to use the enumeration keys to create a successful import.
 For example, instead of the custom localization for `Series`, use the enumeration key `series` in the
 archival record level column.
 
